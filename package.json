@@ -1,0 +1,30 @@
+{
+    "name": "syncpeek",
+    "version": "0.0.1",
+    "description": "SyncPeek lets you test what you're working on across multiple browsers - without installing or configuring anything.",
+    "keywords": ["mobile", "testing", "preview"],
+    "homepage": "http://syncpeek.herokuapp.com/",
+    "bugs": {
+        "url": "https://github.com/flesch/syncpeek/issues"
+    },
+    "author": "John Flesch <john@fles.ch> (http://fles.ch)",
+    "contributors": [
+        "John Flesch <john@fles.ch> (http://fles.ch)"
+    ],
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/flesch/syncpeek.git"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "3.0.3",
+      "socket.io": "0.9.11"
+    },
+    "engines": {
+        "node": "0.8.14",
+        "npm": "1.1.65"
+    }
+}
