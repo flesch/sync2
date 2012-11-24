@@ -23,11 +23,20 @@
 (function(){
   
   var socket = io.connect();
+  
+  socket.on('connect', function(){
+    console.log(arguments);
+    socket.emit('subscribe', {room:window.location.pathname.substr(1)});
+  });
 
   socket.on('navigate', function(url) {
     $('#url').val(url);
     $('iframe').attr('src', url);
   });  
+
+  socket.on('error', function(url) {
+    alert("Can't embed " + url);
+  }); 
     
   $('form').on('submit', function(){
     socket.emit('navigate', $('#url').val());
