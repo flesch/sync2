@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>SyncPeek</title>
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  
+<div id="navigator">
+  <form>
+    <input id="url" type="text" autofocus="autofocus" value="http://cnn.com/" />
+  </form>
+</div>
+  
+<iframe src="/blank.html" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
+
+<script src="/js/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+(function(){
+  
+  var socket = io.connect();
+  
+  socket.on('connect', function(){
+    socket.emit('subscribe', {room:window.location.pathname.substr(1)});
+  });
+
+  socket.on('navigate', function(url) {
+    $('#url').val(url);
+    $('iframe').attr('src', url);
+  });  
+
+  socket.on('error', function(url) {
+    alert("Can't embed " + url);
+  }); 
+    
+  $('form').on('submit', function(){
+    socket.emit('navigate', $('#url').val());
+    return false;
+  });
+  
+})();
+</script>
+</body>
+</html>

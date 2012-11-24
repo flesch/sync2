@@ -8,41 +8,19 @@
 <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
-  
-<div id="navigator">
-  <form>
-    <input id="url" type="text" autofocus="autofocus" value="http://cnn.com/" />
-  </form>
-</div>
-  
-<iframe src="/blank.html" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"></iframe>
+
+<h1>SyncPeek</h1>
+<form>
+  <input id="room" value="88729" />
+</form>
 
 <script src="/js/jquery.js"></script>
-<script src="/socket.io/socket.io.js"></script>
 <script>
 (function(){
-  
-  var socket = io.connect();
-  
-  socket.on('connect', function(){
-    console.log(arguments);
-    socket.emit('subscribe', {room:window.location.pathname.substr(1)});
-  });
-
-  socket.on('navigate', function(url) {
-    $('#url').val(url);
-    $('iframe').attr('src', url);
-  });  
-
-  socket.on('error', function(url) {
-    alert("Can't embed " + url);
-  }); 
-    
   $('form').on('submit', function(){
-    socket.emit('navigate', $('#url').val());
+    window.location.replace('/' + $('#room').val());
     return false;
   });
-  
 })();
 </script>
 </body>
