@@ -41,7 +41,6 @@ server.listen(process.env.PORT || 3000, function(){
   console.log("    ⚡ app listening on http://" + addr.address + ":" + addr.port);
 });
 
-
 io.sockets.on('connection', function(socket) {
   
   socket.on('subscribe', function(data) {
@@ -56,6 +55,8 @@ io.sockets.on('connection', function(socket) {
           io.sockets.in(room).emit('navigate', url);
         } else {
           io.sockets.in(room).emit('error', url);
+          socket.emit('no', 'no!');
+          socket.broadcast.to(room).emit('no', 'NOOOO');
         }
       });
     });
