@@ -1,15 +1,15 @@
 {
-  "name": "syncpeek",
+  "name": "Sycn2",
   "version": "0.0.1",
-  "description": "SyncPeek lets you test what you're working on across multiple browsers - without installing or configuring anything.",
+  "description": "sync2 lets you test what you're working on across multiple browsers - without installing or configuring anything.",
   "keywords": [
     "mobile",
     "testing",
     "preview"
   ],
-  "homepage": "http://syncpeek.herokuapp.com/",
+  "homepage": "http://sync2.herokuapp.com/",
   "bugs": {
-    "url": "https://github.com/flesch/syncpeek/issues"
+    "url": "https://github.com/flesch/sync2/issues"
   },
   "author": "John Flesch <john@fles.ch> (http://fles.ch)",
   "contributors": [
@@ -18,7 +18,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/flesch/syncpeek.git"
+    "url": "https://github.com/flesch/sync2.git"
   },
   "scripts": {
     "start": "node app.js"
